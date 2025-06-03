@@ -15,7 +15,7 @@ This project is a simple Node.js application that provides endpoints for tokeniz
 
 ```bash
 # Clone the repository
-git clone https://github.com/malinmalliywadu/anz-tech-test.git
+git clone https://github.com/malinmalliyawadu/anz-tech-test.git
 cd anz-tech-test
 
 # Install dependencies
