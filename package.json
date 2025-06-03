@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Tech test for ANZ",
   "main": "dist/index.js",
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
@@ -28,7 +27,9 @@
   "homepage": "https://github.com/malinmalliyawadu/anz-tech-test#readme",
   "dependencies": {
     "fastify": "^5.3.3",
-    "lokijs": "^1.5.12"
+    "fastify-type-provider-zod": "^4.0.2",
+    "lokijs": "^1.5.12",
+    "zod": "^3.25.49"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",

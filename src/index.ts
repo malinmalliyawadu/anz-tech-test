@@ -1,19 +1,34 @@
-// Import the framework and instantiate it
 import Fastify from "fastify";
+import { registerHealthRoute } from "./routes/health.js";
+import {
+  serializerCompiler,
+  validatorCompiler,
+} from "fastify-type-provider-zod";
+import { TokenService } from "./services/tokenService.js";
+import { registerTokenizeRoute } from "./routes/tokenize.js";
+import { registerDetokenizeRoute } from "./routes/detokenize.js";
 
-const fastify = Fastify({
-  logger: true,
-});
+const fastify = Fastify({ logger: true });
+const tokenService = new TokenService();
 
-// Declare a route
-fastify.get("/", async function handler(request, reply) {
-  return { hello: "world" };
-});
+fastify.setValidatorCompiler(validatorCompiler);
+fastify.setSerializerCompiler(serializerCompiler);
 
-// Run the server!
-try {
-  await fastify.listen({ port: 3000 });
-} catch (err) {
-  fastify.log.error(err);
-  process.exit(1);
-}
+registerHealthRoute(fastify);
+registerTokenizeRoute(fastify, tokenService);
+registerDetokenizeRoute(fastify, tokenService);
+
+const start = async () => {
+  try {
+    const port = Number(process.env.PORT) || 3000;
+    await fastify.listen({ port, host: "0.0.0.0" });
+    console.log(`Server running. Health check http://localhost:${port}`);
+  } catch (err) {
+    fastify.log.error(err);
+    process.exit(1);
+  }
+};
+
+start();
+
+export default fastify;
