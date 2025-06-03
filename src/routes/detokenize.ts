@@ -1,8 +1,8 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import z from "zod";
-import { TokenService } from "../services/tokenService.js";
-import { errorSchema } from "../schemas/error.js";
+import { TokenService } from "../services/tokenService";
+import { errorSchema } from "../schemas/error";
 
 export const registerDetokenizeRoute = (
   fastify: FastifyInstance,

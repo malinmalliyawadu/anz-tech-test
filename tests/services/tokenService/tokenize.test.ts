@@ -1,4 +1,4 @@
-import { TokenService } from "../../src/services/tokenService";
+import { TokenService } from "../../../src/services/tokenService";
 
 describe("TokenizationService", () => {
   let service: TokenService;

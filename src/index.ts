@@ -1,12 +1,12 @@
 import Fastify from "fastify";
-import { registerHealthRoute } from "./routes/health.js";
+import { registerHealthRoute } from "./routes/health";
 import {
   serializerCompiler,
   validatorCompiler,
 } from "fastify-type-provider-zod";
-import { TokenService } from "./services/tokenService.js";
-import { registerTokenizeRoute } from "./routes/tokenize.js";
-import { registerDetokenizeRoute } from "./routes/detokenize.js";
+import { TokenService } from "./services/tokenService";
+import { registerTokenizeRoute } from "./routes/tokenize";
+import { registerDetokenizeRoute } from "./routes/detokenize";
 
 const fastify = Fastify({ logger: true });
 const tokenService = new TokenService();
