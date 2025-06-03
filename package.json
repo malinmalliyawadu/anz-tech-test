@@ -2,10 +2,19 @@
   "name": "tokenization-service",
   "version": "1.0.0",
   "description": "Tech test for ANZ",
-  "main": "index.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "dev:inspect": "tsx watch --inspect src/index.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "prestart": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -31,6 +40,7 @@
     "supertest": "^7.1.1",
     "ts-jest": "^29.3.4",
     "ts-node": "^10.9.2",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
 }
