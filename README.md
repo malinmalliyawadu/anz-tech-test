@@ -36,9 +36,6 @@ npm run test:watch
 
 # Coverage report
 npm run test:coverage
-
-# Debug tests
-npm run test:debug
 ```
 
 ## 📡 CURL commands for testing
